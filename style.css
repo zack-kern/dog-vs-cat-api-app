@@ -1,0 +1,37 @@
+.container * {
+  font-family: "Roboto";
+}
+.w-text {
+  color: white;
+}
+.hidden {
+  display: none;
+}
+.home-bg {
+  background: rgb(238, 226, 205);
+  background: linear-gradient(170deg, #746b6b 50%, #eed9cd 50%);
+  height: 100vh;
+}
+.row .cats-primary-bg {
+  background-color: #e15b5b;
+}
+.cats-secondary-bg {
+  background-color: #746b6b;
+  height: 200px;
+}
+.dogs-primary-bg {
+  background-color: #b1d0ae;
+}
+.dogs-secondary-bg {
+  background-color: #eed9cd;
+  height: 200px;
+}
+.home-bg > button {
+  color: white;
+  font-size: 24px;
+  width: 200px;
+  height: 40px;
+  background: rgba(83, 73, 46, 0.65);
+  border: 1px solid rgba(83, 73, 46, 0.65);
+  border-radius: 35px;
+}
