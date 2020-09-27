@@ -1,5 +1,6 @@
 var homeHidden = document.querySelector(".container");
 var homeButton = document.querySelector(".home-bg > button");
+var duelPage = document.querySelector(".duel-page");
 var catImg = document.querySelector(".cat-img");
 var dogImg = document.querySelector(".dog-img");
 var catURL = [];
@@ -7,17 +8,18 @@ var dogURL = [];
 homeButton.addEventListener("click", homeButtonFunction);
 function homeButtonFunction() {
   // -- handles the duel button event listener which hides the home page and reveals the first image page
+  duelPage.classList.remove("hidden");
   homeHidden.classList.add("hidden");
   // renderPage(catURL, dogURL);
 }
 var catImages = $.ajax({
-  url: "https://api.thecatapi.com/v1/images/search?limit=32",
+  url: "https://api.thecatapi.com/v1/images/search?limit=5",
   method: "GET",
   success: catURLGet,
   error: errorC,
 });
 var dogImages = $.ajax({
-  url: "https://dog.ceo/api/breeds/image/random/32",
+  url: "https://dog.ceo/api/breeds/image/random/5",
   method: "GET",
   success: dogURLGet,
   error: errorD,
@@ -25,22 +27,19 @@ var dogImages = $.ajax({
 function catURLGet() {
   //--- handles the GET request from Cat API to create array of 32 unique cat images------
   var arr;
-  for (var i = 1; i < 32; i++) {
-    arr = catImages.responseJSON[i].url;
+  for (var i = 1; i < 6; i++) {
+    arr = catImages.responseJSON[i - 1].url;
     catURL.push(arr);
   }
-  console.log(catURL);
   function catAppend(catURL) {
     var string = "url('" + catURL[0] + "')";
     catImg.style.backgroundImage = string;
   }
   catAppend(catURL);
-  console.log(catURL);
 }
 function dogURLGet() {
   //--- handles the GET request from Dog API to create array of 32 unique dog images------
   dogURL = dogImages.responseJSON.message;
-  console.log(dogURL);
   function dogAppend(dogURL) {
     var string = "url('" + dogURL[0] + "')";
     dogImg.style.backgroundImage = string;
@@ -65,6 +64,9 @@ function catButtonFunction() {
   dogImg.style.backgroundImage = dogString;
   header.textContent = j + 1;
   j++;
+  if (j > 5) {
+    duelPage.classList.add("hidden");
+  }
 }
 dogImg.addEventListener("click", dogButtonFunction);
 function dogButtonFunction() {
@@ -72,7 +74,11 @@ function dogButtonFunction() {
   var catString = "url('" + catURL[j] + "')";
   dogImg.style.backgroundImage = dogString;
   catImg.style.backgroundImage = catString;
+  console.log(dogURL);
   console.log(dogURL[j]);
   header.textContent = j + 1;
   j++;
+  if (j > 5) {
+    duelPage.classList.add("hidden");
+  }
 }
