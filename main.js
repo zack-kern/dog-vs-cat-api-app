@@ -11,21 +11,21 @@ function homeButtonFunction() {
   // renderPage(catURL, dogURL);
 }
 var catImages = $.ajax({
-  url: "https://api.thecatapi.com/v1/images/search?limit=4",
+  url: "https://api.thecatapi.com/v1/images/search?limit=32",
   method: "GET",
   success: catURLGet,
   error: errorC,
 });
 var dogImages = $.ajax({
-  url: "https://dog.ceo/api/breeds/image/random/4",
+  url: "https://dog.ceo/api/breeds/image/random/32",
   method: "GET",
   success: dogURLGet,
   error: errorD,
 });
 function catURLGet() {
-  //--- handles the GET request from Cat API to create array of cat images------
+  //--- handles the GET request from Cat API to create array of 32 unique cat images------
   var arr;
-  for (var i = 0; i < 4; i++) {
+  for (var i = 1; i < 32; i++) {
     arr = catImages.responseJSON[i].url;
     catURL.push(arr);
   }
@@ -38,7 +38,7 @@ function catURLGet() {
   console.log(catURL);
 }
 function dogURLGet() {
-  //--- handles the GET request from Dog API to create array of dog images------
+  //--- handles the GET request from Dog API to create array of 32 unique dog images------
   dogURL = dogImages.responseJSON.message;
   console.log(dogURL);
   function dogAppend(dogURL) {
@@ -53,7 +53,26 @@ function errorC() {
 function errorD() {
   console.error("Couldn't get dog image");
 }
-
-var catButton = document.querySelector(".cat-img");
-catButton.addEventListener("click", catButtonFunction);
-function catButtonFunction() {}
+var j = 1;
+var winArray = [];
+var loseArray = [];
+var header = document.querySelector("#header");
+catImg.addEventListener("click", catButtonFunction);
+function catButtonFunction() {
+  var catString = "url('" + catURL[j] + "')";
+  var dogString = "url('" + dogURL[j] + "')";
+  catImg.style.backgroundImage = catString;
+  dogImg.style.backgroundImage = dogString;
+  header.textContent = j + 1;
+  j++;
+}
+dogImg.addEventListener("click", dogButtonFunction);
+function dogButtonFunction() {
+  var dogString = "url('" + dogURL[j] + "')";
+  var catString = "url('" + catURL[j] + "')";
+  dogImg.style.backgroundImage = dogString;
+  catImg.style.backgroundImage = catString;
+  console.log(dogURL[j]);
+  header.textContent = j + 1;
+  j++;
+}

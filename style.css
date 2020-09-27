@@ -2,15 +2,12 @@
   font-family: "Roboto";
   font-size: 3rem;
 }
-.w-text {
-  color: white;
-}
 .hidden {
   display: none;
 }
 .home-bg {
   background: rgb(238, 226, 205);
-  background: linear-gradient(170deg, #746b6b 50%, #eed9cd 50%);
+  background: linear-gradient(170deg, #e15b5b 50%, #b1d0ae 50%);
   height: 100vh;
 }
 .cats-primary-bg {
@@ -25,18 +22,17 @@
 .dogs-secondary-bg {
   background-color: #eed9cd;
 }
-.home-bg > button {
-  color: white;
-  font-size: 24px;
-  width: 200px;
-  height: 40px;
-  background: rgba(83, 73, 46, 0.65);
-  border: 1px solid rgba(83, 73, 46, 0.65);
+.home-bg button {
+  width: 50%;
+  height: 5rem;
+  background: rgba(255, 255, 255, 0.521);
   border-radius: 35px;
+  border: none;
+  transition: width 0.5s;
 }
-header {
-  font-size: 24px;
-  height: 6vh;
+.home-bg button:hover {
+  width: 80%;
+  transform: rotate(-11deg);
 }
 .cat-row {
   height: 35vh;
@@ -97,20 +93,21 @@ header {
 .dog-select {
   font-size: 28px;
   position: absolute;
-  bottom: 35%;
+  bottom: 30%;
   visibility: hidden;
 }
 .cat-img:hover .cat-select {
   visibility: visible;
   opacity: 1;
-  background-color: #eed9cd;
-  color: black;
+  background-color: #e15b5b88;
+  font-weight: 500;
   padding: 1rem;
 }
 .dog-img:hover .dog-select {
   visibility: visible;
   opacity: 1;
-  background-color: #eed9cd;
+  background-color: #b1d0ae8c;
   color: black;
+  font-weight: 500;
   padding: 1rem;
 }
