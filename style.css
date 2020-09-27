@@ -1,5 +1,6 @@
 .container * {
   font-family: "Roboto";
+  font-size: 3rem;
 }
 .w-text {
   color: white;
@@ -12,19 +13,17 @@
   background: linear-gradient(170deg, #746b6b 50%, #eed9cd 50%);
   height: 100vh;
 }
-.row .cats-primary-bg {
+.cats-primary-bg {
   background-color: #e15b5b;
 }
 .cats-secondary-bg {
   background-color: #746b6b;
-  height: 200px;
 }
 .dogs-primary-bg {
   background-color: #b1d0ae;
 }
 .dogs-secondary-bg {
   background-color: #eed9cd;
-  height: 200px;
 }
 .home-bg > button {
   color: white;
@@ -34,4 +33,84 @@
   background: rgba(83, 73, 46, 0.65);
   border: 1px solid rgba(83, 73, 46, 0.65);
   border-radius: 35px;
+}
+header {
+  font-size: 24px;
+  height: 6vh;
+}
+.cat-row {
+  height: 35vh;
+}
+.dog-row {
+  height: 35vh;
+  padding-bottom: 2rem;
+}
+.cat-img {
+  background-size: contain;
+  background: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.dog-img {
+  background-size: contain;
+  background: center;
+  background-repeat: no-repeat;
+  height: 80%;
+  opacity: 1;
+  transition: opacity 0.5s;
+}
+.dog-img,
+.cat-img {
+  border-radius: 50%;
+  background-color: rgba(2, 2, 2, 0.3);
+}
+.cat-img:hover {
+  transition: border-radius 0.5s;
+  border-radius: 0%;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.dog-img:hover {
+  transition: border-radius 0.5s;
+  border-radius: 0%;
+  opacity: 0.7;
+  cursor: pointer;
+}
+.vs {
+  width: 100%;
+  height: 12vh;
+  background: linear-gradient(
+    175deg,
+    rgba(225, 91, 91, 0.4) 43%,
+    rgba(177, 208, 174, 0.4) 43%
+  );
+  font-size: 24px;
+}
+.cat-select {
+  font-size: 28px;
+  position: absolute;
+  top: 35%;
+  visibility: hidden;
+}
+.dog-select {
+  font-size: 28px;
+  position: absolute;
+  bottom: 35%;
+  visibility: hidden;
+}
+.cat-img:hover .cat-select {
+  visibility: visible;
+  opacity: 1;
+  background-color: #eed9cd;
+  color: black;
+  padding: 1rem;
+}
+.dog-img:hover .dog-select {
+  visibility: visible;
+  opacity: 1;
+  background-color: #eed9cd;
+  color: black;
+  padding: 1rem;
 }
