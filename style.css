@@ -121,3 +121,17 @@ header {
 .results {
   height: 100vh;
 }
+.dog-results {
+  background-size: contain;
+  background: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.cat-results {
+  background-size: contain;
+  background: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  margin-bottom: 1rem;
+}

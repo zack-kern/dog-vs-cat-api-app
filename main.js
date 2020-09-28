@@ -7,6 +7,12 @@ var catURL = [];
 var dogURL = [];
 var resultsHeader = document.querySelector(".results-header");
 var results = document.querySelector(".results");
+var j = 0;
+var dogArray = [];
+var catArray = [];
+var catString = "url('" + catURL[j] + "')";
+var dogString = "url('" + dogURL[j] + "')";
+var header = document.querySelector("#header");
 homeButton.addEventListener("click", homeButtonFunction);
 function homeButtonFunction() {
   // -- handles the duel button event listener which hides the home page and reveals the first image page
@@ -55,51 +61,63 @@ function errorC() {
 function errorD() {
   console.error("Couldn't get dog image");
 }
-var j = 1;
-var dogArray = [];
-var catArray = [];
-var header = document.querySelector("#header");
 catImg.addEventListener("click", catButtonFunction);
 function catButtonFunction() {
-  var catString = "url('" + catURL[j] + "')";
-  var dogString = "url('" + dogURL[j] + "')";
+  catString = "url('" + catURL[j + 1] + "')";
+  dogString = "url('" + dogURL[j + 1] + "')";
+  // console.log("string", catString);
+  // console.log("url", catURL);
+  // console.log("j", catURL[j]);
   catImg.style.backgroundImage = catString;
   dogImg.style.backgroundImage = dogString;
-  header.textContent = j + 1;
+  header.textContent = j + 2;
   catArray.push(catString);
   j++;
-  if (j > 5) {
+  if (j > 4) {
     duelPage.classList.add("hidden");
     renderHome(catArray, dogArray);
   }
 }
 dogImg.addEventListener("click", dogButtonFunction);
 function dogButtonFunction() {
-  var dogString = "url('" + dogURL[j] + "')";
-  var catString = "url('" + catURL[j] + "')";
+  dogString = "url('" + dogURL[j + 1] + "')";
+  catString = "url('" + catURL[j + 1] + "')";
   dogImg.style.backgroundImage = dogString;
   catImg.style.backgroundImage = catString;
-  header.textContent = j + 1;
+  header.textContent = j + 2;
   dogArray.push(dogString);
   j++;
-  if (j > 5) {
+  if (j > 4) {
     duelPage.classList.add("hidden");
     renderHome(catArray, dogArray);
   }
 }
+console.log(dogArray);
 function renderHome(cat, dog) {
   if (cat.length > dog.length) {
-    results.classList.add("cats-primary-bg");
+    document.body.classList.add("cats-primary-bg");
     var text = document.createTextNode("Team 'Mean Cats' Win..");
     resultsHeader.appendChild(text);
+    for (var i = 0; i < cat.length; i++) {
+      console.log(cat[i]);
+      var div = document.createElement("div");
+      div.classList.add("cat-results");
+      div.style.backgroundImage = cat[i];
+      var calc = 100 / cat.length;
+      div.style.height = calc + "vh";
+      results.appendChild(div);
+    }
   } else {
-    results.classList.add("dogs-primary-bg");
+    document.body.classList.add("dogs-primary-bg");
     var text = document.createTextNode("Team 'Good Dogs' Win!!");
     resultsHeader.appendChild(text);
     for (var i = 0; i < dog.length; i++) {
       console.log(dog[i]);
       var div = document.createElement("div");
+      div.classList.add("dog-results");
       div.style.backgroundImage = dog[i];
+      var calc = 100 / dog.length;
+      div.style.height = calc + "vh";
       results.appendChild(div);
     }
   }
