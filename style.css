@@ -6,6 +6,7 @@
   border: 2vh solid rgba(137, 137, 138, 0.541);
   padding: none;
   margin: none;
+  max-width: 1000px;
 }
 .hidden {
   display: none;
@@ -116,4 +117,7 @@ header {
   color: black;
   font-weight: 500;
   padding: 1rem;
+}
+.results {
+  height: 100vh;
 }
