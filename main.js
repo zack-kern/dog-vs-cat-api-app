@@ -33,7 +33,7 @@ var dogImages = $.ajax({
   error: errorD,
 });
 function catURLGet() {
-  //--- handles the GET request from Cat API to create array of 32 unique cat images------
+  //--- handles the GET request from Cat API to create array of 5 unique cat images------
   var arr;
   for (var i = 1; i < 6; i++) {
     arr = catImages.responseJSON[i - 1].url;
@@ -48,7 +48,6 @@ function catURLGet() {
 function dogURLGet() {
   //--- handles the GET request from Dog API to create array of 32 unique dog images------
   dogURL = dogImages.responseJSON.message;
-  console.log(dogImages);
   function dogAppend(dogURL) {
     var string = "url('" + dogURL[0] + "')";
     dogImg.style.backgroundImage = string;
@@ -65,9 +64,6 @@ catImg.addEventListener("click", catButtonFunction);
 function catButtonFunction() {
   catString = "url('" + catURL[j + 1] + "')";
   dogString = "url('" + dogURL[j + 1] + "')";
-  // console.log("string", catString);
-  // console.log("url", catURL);
-  // console.log("j", catURL[j]);
   catImg.style.backgroundImage = catString;
   dogImg.style.backgroundImage = dogString;
   header.textContent = j + 2;
@@ -92,33 +88,51 @@ function dogButtonFunction() {
     renderHome(catArray, dogArray);
   }
 }
-console.log(dogArray);
 function renderHome(cat, dog) {
   if (cat.length > dog.length) {
     document.body.classList.add("cats-primary-bg");
     var text = document.createTextNode("Team 'Mean Cats' Win..");
     resultsHeader.appendChild(text);
-    for (var i = 0; i < cat.length; i++) {
-      console.log(cat[i]);
+    for (var j = 0; j < cat.length; j++) {
       var div = document.createElement("div");
       div.classList.add("cat-results");
-      div.style.backgroundImage = cat[i];
-      var calc = 100 / cat.length;
+      var catPar = "url('" + catURL[j] + "')";
+      div.style.backgroundImage = catPar;
+      var calc = 75 / cat.length;
       div.style.height = calc + "vh";
       results.appendChild(div);
+      results.classList.remove("hidden");
+      if (j == cat.length - 1) {
+        createRestartBtn();
+      }
     }
   } else {
     document.body.classList.add("dogs-primary-bg");
     var text = document.createTextNode("Team 'Good Dogs' Win!!");
     resultsHeader.appendChild(text);
-    for (var i = 0; i < dog.length; i++) {
-      console.log(dog[i]);
+    for (var j = 0; j < dog.length; j++) {
       var div = document.createElement("div");
       div.classList.add("dog-results");
-      div.style.backgroundImage = dog[i];
-      var calc = 100 / dog.length;
+      var dogPar = "url('" + dogURL[j] + "')";
+      div.style.backgroundImage = dogPar;
+      var calc = 75 / dog.length;
       div.style.height = calc + "vh";
       results.appendChild(div);
+      results.classList.remove("hidden");
+      if (j == dog.length - 1) {
+        createRestartBtn();
+      }
     }
   }
+}
+function createRestartBtn() {
+  var btn = document.createElement("button");
+  results.appendChild(btn);
+  var btnText = document.createTextNode("Duel Again");
+  btn.classList.add("duel-again");
+  btn.appendChild(btnText);
+  btn.addEventListener("click", duelAgain);
+}
+function duelAgain() {
+  location.href = "./index.html";
 }
