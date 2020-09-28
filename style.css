@@ -140,6 +140,7 @@ header {
   background-color: white;
   border: none;
   border-radius: 1rem;
+  min-width: 10rem;
   width: 30%;
   height: 5vh;
   margin-left: 35%;
