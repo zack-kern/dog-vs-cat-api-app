@@ -1,42 +1,38 @@
 .container * {
   font-family: "Roboto";
-  font-size: 3rem;
+  font-size: 2rem;
 }
-.w-text {
-  color: white;
+.container {
+  border: 2vh solid rgba(137, 137, 138, 0.541);
+  padding: none;
+  margin: none;
+  max-width: 1000px;
 }
 .hidden {
   display: none;
 }
 .home-bg {
   background: rgb(238, 226, 205);
-  background: linear-gradient(170deg, #746b6b 50%, #eed9cd 50%);
-  height: 100vh;
+  background: linear-gradient(170deg, #e15b5b 50%, #b1d0ae 50%);
+  height: 96vh;
 }
 .cats-primary-bg {
   background-color: #e15b5b;
 }
-.cats-secondary-bg {
-  background-color: #746b6b;
-}
 .dogs-primary-bg {
   background-color: #b1d0ae;
 }
-.dogs-secondary-bg {
-  background-color: #eed9cd;
-}
-.home-bg > button {
-  color: white;
-  font-size: 24px;
-  width: 200px;
-  height: 40px;
-  background: rgba(83, 73, 46, 0.65);
-  border: 1px solid rgba(83, 73, 46, 0.65);
+.home-bg button {
+  width: 50%;
+  height: 5rem;
+  background: rgba(255, 255, 255, 0.521);
   border-radius: 35px;
+  border: none;
+  transition: width 0.5s;
 }
-header {
-  font-size: 24px;
-  height: 6vh;
+.home-bg button:hover {
+  width: 80%;
+  transform: rotate(-11deg);
 }
 .cat-row {
   height: 35vh;
@@ -66,6 +62,7 @@ header {
   border-radius: 50%;
   background-color: rgba(2, 2, 2, 0.3);
 }
+
 .cat-img:hover {
   transition: border-radius 0.5s;
   border-radius: 0%;
@@ -86,7 +83,13 @@ header {
     rgba(225, 91, 91, 0.4) 43%,
     rgba(177, 208, 174, 0.4) 43%
   );
-  font-size: 24px;
+  font-size: 28px;
+}
+.foot {
+  height: 6vh;
+}
+header {
+  height: 6vh;
 }
 .cat-select {
   font-size: 28px;
@@ -97,20 +100,38 @@ header {
 .dog-select {
   font-size: 28px;
   position: absolute;
-  bottom: 35%;
+  bottom: 30%;
   visibility: hidden;
 }
 .cat-img:hover .cat-select {
   visibility: visible;
   opacity: 1;
-  background-color: #eed9cd;
-  color: black;
+  background-color: #e15b5b88;
+  font-weight: 500;
   padding: 1rem;
 }
 .dog-img:hover .dog-select {
   visibility: visible;
   opacity: 1;
-  background-color: #eed9cd;
+  background-color: #b1d0ae8c;
   color: black;
+  font-weight: 500;
   padding: 1rem;
+}
+.results {
+  height: 100vh;
+}
+.dog-results {
+  background-size: contain;
+  background: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.cat-results {
+  background-size: contain;
+  background: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  margin-bottom: 1rem;
 }

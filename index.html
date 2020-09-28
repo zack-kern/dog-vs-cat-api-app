@@ -32,9 +32,11 @@
         <h1>'Good Dogs'</h1>
       </div>
     </div>
-    <div class="container dogs-secondary-bg">
+    <div class="container duel-page hidden">
       <div class="row">
-        <header class="mx-auto my-2">DUEL #1</header>
+        <header class="mx-auto my-2 row">
+          DUEL #<span id="header">1</span>
+        </header>
       </div>
       <div
         class="cat-row row cats-primary-bg d-flex flex-column flex-nowrap justify-content-center align-items-center"
@@ -69,6 +71,15 @@
           <div class="dog-select">Select this 'Good Dog'?</div>
         </div>
       </div>
+      <div class="foot row"></div>
+    </div>
+    <div class="results">
+      <h1
+        class="results-header mx-auto py-2 my-2 row d-flex align-items-center justify-content-center"
+      ></h1>
+      <div
+        class="img-container d-flex flex-wrap align-items-center justify-content-around"
+      ></div>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
