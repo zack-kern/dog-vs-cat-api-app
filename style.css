@@ -119,7 +119,7 @@ header {
   padding: 1rem;
 }
 .results {
-  height: 100vh;
+  height: 90vh;
 }
 .dog-results {
   background-size: contain;
@@ -134,4 +134,18 @@ header {
   background-repeat: no-repeat;
   width: 100%;
   margin-bottom: 1rem;
+}
+.duel-again {
+  opacity: 0.8;
+  background-color: white;
+  border: none;
+  border-radius: 1rem;
+  width: 30%;
+  height: 5vh;
+  margin-left: 35%;
+  font-size: 24px;
+}
+.duel-again:hover {
+  cursor: pointer;
+  opacity: 0.3;
 }
