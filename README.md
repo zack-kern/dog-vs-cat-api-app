@@ -17,7 +17,7 @@ A hackathon project utilizing the data from two public APIs to create a dog vs c
 
 # Live Demo
 
-https://zack-kern.github.io/api-hackathon/
+https://zack-kern.github.io/dog-vs-cat-api-app/
 
 # Features
 
